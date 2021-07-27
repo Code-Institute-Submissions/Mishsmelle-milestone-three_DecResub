@@ -1,10 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-});
-
-// Or with jQuery
-
+/*
+    jQuery for MaterializeCSS initialization
+*/
 $(document).ready(function () {
     $(".sidenav").sidenav({
         edge: "right"
