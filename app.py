@@ -24,17 +24,16 @@ def get_films():
     films = mongo.db.films.find()
     return render_template("theupshot.html", films=films)
 
-
-@app.route("/get_create", methods=["GET", "POST"])
+@app.route("/create", methods=["GET", "POST"])
 def create():
-    return render_template("create.html")
-    # check if username already exists in db
-    existing_user = mongo.db.users.find_one(
-        {"username": request.form.get("username").lower()})
+    if request.method == "POST":
+        # check if username already exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
 
-    if existing_user:
-        flash("Username already exists")
-        return redirect(url_for("create"))
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("create"))
 
         create = {
             "username": request.form.get("username").lower(),
@@ -46,6 +45,33 @@ def create():
         session["user"] = request.form.get("username").lower()
         flash("Account Created!")
     return render_template("create.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # check if username exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # ensure hashed password matches user input
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome, {}".format(request.form.get("username")))
+            else:
+                # invalid password match
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
