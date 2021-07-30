@@ -1,33 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-<body>
+<ul class="collapsible">
     {% for film in films %}
-    {{ film.film_title }}<br>
-    {{ film.genre }}<br>
-    {{ film.score }}<br>
-    {{ film.review }}<br>
-    {{ film.date_added }}<br>
+    <li>
+        <div class="collapsible-header white-text blue-grey darken-4 text-shadow">
+            <i class="fas fa-caret-down"></i>
+            <strong>{{ film.film_title }}</strong>
+            {% if film.is_watchlist == "on" %}
+            <i class="fas fa-film blue-grey-text text-lighten-2 tooltipped" data-position="right"
+                data-tooltip="Added to your watchlist"></i>
+            {% endif %}
+        </div>
+        <div class="collapsible-body">
+            <p>Date Added: {{ film.date_added }}</p>
+            <strong>Film Score:{{ film.score }}</strong> {{ film.genre }}
+            <p>{{ film.review }}</p>
+        </div>
+    </li>
     {% endfor %}
+</ul>
 
-
-    <ul class="collapsible">
-        <li>
-            <div class="collapsible-header white-text blue-grey darken-4 text-shadow"><i
-                    class="fas fa-caret-down"></i>Comedy Films</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header white-text blue-grey darken-4 text-shadow"><i
-                    class="fas fa-caret-down"></i>Drama Films</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header white-text blue-grey darken-4 text-shadow"><i
-                    class="fas fa-caret-down"></i>Documentary</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-    </ul>
-
-    {% endblock %}
+{% endblock %}
