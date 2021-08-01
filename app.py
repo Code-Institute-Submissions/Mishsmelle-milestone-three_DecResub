@@ -139,6 +139,13 @@ def edit_film(film_id):
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("edit_film.html", film=film, genres=genres)
 
+@app.route("/delete_film/<film_id>")
+def delete_film(film_id):
+    mongo.db.films.remove({"_id": ObjectId(film_id)})
+    flash("Review Successfully Deleted")
+    return redirect(url_for("get_films"))
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
