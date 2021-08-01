@@ -24,6 +24,7 @@ def get_films():
     films = mongo.db.films.find()
     return render_template("theupshot.html", films=films)
 
+
 @app.route("/create", methods=["GET", "POST"])
 def create():
     if request.method == "POST":
@@ -48,6 +49,7 @@ def create():
 
     return render_template("create.html")
 
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -57,6 +59,7 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
+
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                         session["user"] = request.form.get("username").lower()
@@ -88,12 +91,14 @@ def profile(username):
 
     return redirect(url_for("login"))
 
+
 @app.route("/logout")
 def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
 
 @app.route("/upload_review", methods=["GET", "POST"])
 def upload_review():
@@ -113,6 +118,7 @@ def upload_review():
 
     genres = mongo.db.genres.find().sort("genre", 1)
     return render_template("upload_review.html", genres=genres)
+
 
 @app.route("/edit_film/<film_id>", methods=["GET", "POST"])
 def edit_film(film_id):
