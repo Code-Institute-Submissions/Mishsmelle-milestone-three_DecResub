@@ -125,7 +125,7 @@ def edit_film(film_id):
 
     if request.method == "POST":
         is_watchlist = "on" if request.form.get("is_watchlist") else "off"
-        submit = {
+        submit= {
             "genre_name": request.form.get("genre_name"),
             "film_title": request.form.get("film_title"),
             "review": request.form.get("review"),

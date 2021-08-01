@@ -66,7 +66,7 @@
         </div>
 
 
-        <!-- film name -->
+        <!-- film title -->
 
 
         <div class="row">
@@ -78,11 +78,11 @@
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
 
 
-                <input id="film_name" name="film_name" minlength="5" maxlength="50" value="{{ film.film_title }}"
-                    type="text" class="validate" required>
+                <input id="film_title" name="film_title" value="{{ film.film_title }}" type="text" class="validate"
+                    required>
 
 
-                <label for="film_name">film Name</label>
+                <label for="film_name">Film Title</label>
 
 
             </div>
@@ -103,8 +103,7 @@
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
 
 
-                <textarea id="review" name="review" minlength="5" maxlength="200" class="materialize-textarea validate"
-                    required>
+                <textarea id="review" name="review" class="materialize-textarea validate" required>
 
 
                        {{- film.review -}}
