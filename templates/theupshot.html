@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h3 class="light-blue-text text-darken-4 center-align">Film Reviews</h3>
+
 <ul class="collapsible">
     {% for film in films %}
     <li>
@@ -14,8 +16,9 @@
         </div>
         <div class="collapsible-body">
             <p>Date Added: {{ film.date_added }}</p>
-            <strong>Film Score:{{ film.score }}</strong> {{ film.genre }}
+            <strong>Review</strong> {{ film.genre }}
             <p>{{ film.review }}</p>
+            <p><em>by: {{ film.reviewed_by }}</em></p>
         </div>
     </li>
     {% endfor %}

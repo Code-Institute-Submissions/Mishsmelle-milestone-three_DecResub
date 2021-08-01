@@ -95,8 +95,22 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-@app.route("/upload_review")
+@app.route("/upload_review", methods=["GET", "POST"])
 def upload_review():
+    if request.method == "POST":
+        is_watchlist = "on" if request.form.get("is_watchlist") else "off"
+        film = {
+            "genre_name": request.form.get("genre_name"),
+            "film_title": request.form.get("film_title"),
+            "review": request.form.get("review"),
+            "is_watchlist": is_watchlist,
+            "date_added": request.form.get("date_added"),
+            "reviewed_by": session["user"]
+        }
+        mongo.db.films.insert_one(film)
+        flash("Review Successfully Added")
+        return redirect(url_for("get_films"))
+
     genres = mongo.db.genres.find().sort("genre", 1)
     return render_template("upload_review.html", genres=genres)
 
