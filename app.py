@@ -97,7 +97,8 @@ def logout():
 
 @app.route("/upload_review")
 def upload_review():
-    return render_template("upload_review.html")
+    genres = mongo.db.genres.find().sort("genre", 1)
+    return render_template("upload_review.html", genres=genres)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
