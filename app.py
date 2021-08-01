@@ -95,6 +95,10 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+@app.route("/upload_review")
+def upload_review():
+    return render_template("upload_review.html")
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

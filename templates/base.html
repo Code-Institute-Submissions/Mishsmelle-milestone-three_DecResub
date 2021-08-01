@@ -29,7 +29,7 @@
                         {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile Page</a></li>
                         <li><a href="#">Search Films</a></li>
-                        <li><a href="#">Upload a review</a></li>
+                        <li><a href="{{ url_for('upload_review') }}">Upload a review</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -48,7 +48,7 @@
                 {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile Page</a></li>
                 <li><a href="#">Search Films</a></li>
-                <li><a href="#">Upload a review</a></li>
+                <li><a href="{{ url_for('upload_review') }}">Upload a review</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
