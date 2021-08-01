@@ -25,6 +25,13 @@ def get_films():
     return render_template("theupshot.html", films=films)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    films = list(mongo.db.films.find({"$text": {"$search": query}}))
+    return render_template("theupshot.html", films=films)
+
+
 @app.route("/create", methods=["GET", "POST"])
 def create():
     if request.method == "POST":
@@ -125,7 +132,7 @@ def edit_film(film_id):
 
     if request.method == "POST":
         is_watchlist = "on" if request.form.get("is_watchlist") else "off"
-        submit= {
+        submit = {
             "genre_name": request.form.get("genre_name"),
             "film_title": request.form.get("film_title"),
             "review": request.form.get("review"),
@@ -139,12 +146,12 @@ def edit_film(film_id):
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("edit_film.html", film=film, genres=genres)
 
+
 @app.route("/delete_film/<film_id>")
 def delete_film(film_id):
     mongo.db.films.remove({"_id": ObjectId(film_id)})
     flash("Review Successfully Deleted")
     return redirect(url_for("get_films"))
-
 
 
 if __name__ == "__main__":
