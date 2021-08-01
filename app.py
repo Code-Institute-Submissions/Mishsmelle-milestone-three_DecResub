@@ -122,6 +122,19 @@ def upload_review():
 
 @app.route("/edit_film/<film_id>", methods=["GET", "POST"])
 def edit_film(film_id):
+
+    if request.method == "POST":
+        is_watchlist = "on" if request.form.get("is_watchlist") else "off"
+        submit = {
+            "genre_name": request.form.get("genre_name"),
+            "film_title": request.form.get("film_title"),
+            "review": request.form.get("review"),
+            "is_watchlist": is_watchlist,
+            "date_added": request.form.get("date_added"),
+            "reviewed_by": session["user"]
+        }
+        mongo.db.films.update({"_id": ObjectId(film_id)}, submit)
+        flash("Review Successfully Updated")
     film = mongo.db.films.find_one({"_id": ObjectId(film_id)})
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("edit_film.html", film=film, genres=genres)

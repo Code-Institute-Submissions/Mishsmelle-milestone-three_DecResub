@@ -6,17 +6,7 @@
 {% block content %}
 
 
-
-
-
-
-
-<h3 class="light-blue-text text-darken-4 center-align">Edit film</h3>
-
-
-
-
-
+<h3 class="light-blue-text text-darken-4 center-align">Edit your review</h3>
 
 
 <div class="row card-panel grey lighten-5">
@@ -88,7 +78,7 @@
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
 
 
-                <input id="film_name" name="film_name" minlength="5" maxlength="50" value="{{ film.film_name }}"
+                <input id="film_name" name="film_name" minlength="5" maxlength="50" value="{{ film.film_title }}"
                     type="text" class="validate" required>
 
 
@@ -101,7 +91,7 @@
         </div>
 
 
-        <!-- film description -->
+        <!-- Review section -->
 
 
         <div class="row">
@@ -113,17 +103,17 @@
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
 
 
-                <textarea id="film_description" name="film_description" minlength="5" maxlength="200"
-                    class="materialize-textarea validate" required>
+                <textarea id="review" name="review" minlength="5" maxlength="200" class="materialize-textarea validate"
+                    required>
 
 
-                       {{- film.film_description -}}
+                       {{- film.review -}}
 
 
                    </textarea>
 
 
-                <label for="film_description">film Description</label>
+                <label for="review">Your Review</label>
 
 
             </div>
@@ -144,11 +134,11 @@
                 <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
 
 
-                <input id="due_date" name="due_date" type="text" value="{{ film.due_date }}" class="datepicker validate"
-                    required>
+                <input id="date_added" name="date_added" type="text" value="{{ film.date_added }}"
+                    class="datepicker validate" required>
 
 
-                <label for="due_date">Due Date</label>
+                <label for="date_added">Date added</label>
 
 
             </div>
@@ -157,7 +147,7 @@
         </div>
 
 
-        <!-- is urgent toggle -->
+        <!-- Add to watchlist switch -->
 
 
         <div class="row">
@@ -172,19 +162,19 @@
                     <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
 
 
-                    <label for="is_urgent">
+                    <label for="is_watchlist">
 
 
-                        {% if film.is_urgent == "on" %}
+                        {% if film.is_watchlist == "on" %}
 
 
-                        <input type="checkbox" id="is_urgent" name="is_urgent" checked>
+                        <input type="checkbox" id="is_watchlist" name="is_watchlist" checked>
 
 
                         {% else %}
 
 
-                        <input type="checkbox" id="is_urgent" name="is_urgent">
+                        <input type="checkbox" id="is_watchlist" name="is_watchlist">
 
 
                         {% endif %}
@@ -193,7 +183,7 @@
                         <span class="lever"></span>
 
 
-                        Is Urgent
+                        Add to Watchlist
 
 
                     </label>
