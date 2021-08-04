@@ -24,11 +24,11 @@
                     <a href="{{ url_for('get_films') }}" class="brand-logo">The Upshot</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="{{ url_for('get_films') }}">Home</a></li>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
                         <li><a href="#">About</a></li>
                         {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile Page</a></li>
-                        <li><a href="#">Search Films</a></li>
+                        <li><a href="{{ url_for('get_films') }}">Search Films</a></li>
                         <li><a href="{{ url_for('upload_review') }}">Upload a review</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
@@ -43,11 +43,11 @@
                 <li>
                     <h4 class="center-align blue-grey darken-2">The Upshot</h4>
                 </li>
-                <li><a href="{{ url_for('get_films') }}">Home</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
                 <li><a href="#">About</a></li>
                 {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile Page</a></li>
-                <li><a href="#">Search Films</a></li>
+                <li><a href="{{ url_for('get_films') }}">Search Films</a></li>
                 <li><a href="{{ url_for('upload_review') }}">Upload a review</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}

@@ -22,14 +22,14 @@ mongo = PyMongo(app)
 @app.route("/get_films")
 def get_films():
     films = mongo.db.films.find()
-    return render_template("theupshot.html", films=films)
+    return render_template("search.html", films=films)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     films = list(mongo.db.films.find({"$text": {"$search": query}}))
-    return render_template("theupshot.html", films=films)
+    return render_template("search.html", films=films)
 
 
 @app.route("/create", methods=["GET", "POST"])
@@ -152,6 +152,13 @@ def delete_film(film_id):
     mongo.db.films.remove({"_id": ObjectId(film_id)})
     flash("Review Successfully Deleted")
     return redirect(url_for("get_films"))
+
+
+@app.route("/")
+@app.route("/index")
+def index():
+    index = mongo.db.films.find()
+    return render_template("index.html", index=index)
 
 
 if __name__ == "__main__":

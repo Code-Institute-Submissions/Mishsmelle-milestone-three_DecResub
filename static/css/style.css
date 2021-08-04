@@ -20,6 +20,13 @@ main {
     flex: 1 0 auto;
 }
 
+/*logo*/
+#logo-container {
+    background-image: url('/images/upshot_logo.png');
+    max-width: 100%;
+
+}
+
 .page-footer {
     background-color: #000000;
 }
