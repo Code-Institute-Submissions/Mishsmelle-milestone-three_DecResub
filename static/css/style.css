@@ -21,10 +21,20 @@ main {
 }
 
 /*logo*/
-#logo-container {
-    background-image: url('/images/upshot_logo.png');
-    max-width: 100%;
+#logo-img {
+    margin: 15px;
 
+}
+
+#logo_container {
+    height: 400px;
+    width: 100%;
+    position: relative;
+}
+
+.responsive {
+    display: 100%;
+    height: auto;
 }
 
 .page-footer {
@@ -40,6 +50,119 @@ main {
     opacity: 0.8;
     bottom: 50px;
     width: 280px;
+}
+
+/* Home Page Image row*/
+
+.card-image-grid {
+    height: 700px;
+    overflow: hidden;
+    margin: 15px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 150px;
+}
+
+.card-image>img {
+    object-fit: contain;
+}
+
+.film-cards,
+.category-cards {
+    display: flex;
+    flex-flow: wrap;
+    width: 90%;
+}
+
+.background-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.background-img img {
+    flex-shrink: 1;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+/*Film cards*/
+
+.card-image-grid {
+    height: 300px;
+    overflow: hidden;
+}
+
+.card-image>img {
+    object-fit: cover;
+}
+
+.film-cards,
+.category-cards {
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+}
+
+.background-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.background-img img {
+    flex-shrink: 1;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+
+.card-background {
+    margin-left: 0px !important;
+}
+
+.card-background .card-text {
+    text-align: left;
+    font-size: 12px !important;
+    padding: 15px;
+}
+
+.card-reveal-info {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.card-reveal-description {
+    font-size: 16px;
+    margin: 10px 0 10px 0;
+}
+
+.card-image-with-button {
+    position: relative;
+}
+
+.btn-delete {
+    right: 1px !important;
+}
+
+.btn-edit {
+    right: 45px !important;
+}
+
+.flash-modal-content {
+    text-align: center;
+}
+
+.flash-modal-content p {
+    margin-bottom: 0px;
+    font-size: 18px;
+}
+
+.flash-modal-button {
+    text-align: center !important;
 }
 
 /* The popup form - hidden by default */

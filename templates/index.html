@@ -1,13 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!--Home page image-->
+<container id=logo_container>
+    <div id="logo-img" class="responsive">
+        <img src="{{ url_for('static', filename='images/wide_logo.jpg') }}" alt="upshot logo" />
+    </div>
+</container>
 
-<div id="logo-container">
-</div>
+<main class="container">
+    <h3 style="text-decoration: underline;" class="center-align">The Upshot Film Reviews</h3>
+    <p class="center-align">
+        Create a watchlist based on users reviews or write your own reviews for others!<br />
+        {% if not session.user %}
+        To submit a new reviews and start creating your watchlist click here. <a href="{{ url_for('create') }}">Create
+            an account</a><br />
+        Already registered? <a href="{{ url_for('login') }}">Log in</a>
+        {% endif %}
+    </p>
+    <h3 class="recently-added center-align">Recently added reviews</h3>
+    <!--Review cards-->
 
+    <div class="row">
+        <ul class="film-cards">
+            {% for film in recently_added_films %}
+            <li class="card-sizing card card-background center-align">
+                <div class="card-image-with-button">
+                    <div class="card-image card-image-grid waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ film.image_url }}" alt="default film image" />
+                    </div>
+                </div>
+                <div class="card-content card-name">
+                    <span class="card-title title-bottom activator">{{ film.film_title}}</span>
+                </div>
+                <div class="card-reveal card-text">
+                    <div class="card-title">
+                        <i class="material-icons right">close</i>
+                        <strong><a href="{{ film.film_title }}" target="_blank"
+                                rel="noopener noreferrer">{{ film.film_title }}</a></strong> <br />
+                        <br />
+                        <p class="card-reveal-info"><i class="fas fa-theater-masks prefix cyan-text lighten-1"></i>
+                            {{ film.genre_name }}</p>
+                        <p class="card-reveal-info"><i class="fas fa-text-align cyan-text lighten-1"></i>
+                            {{ film.review }}</p>
+                        <p class="card-reveal-info"><i class="fas fa-profile cyan-text lighten-1"></i>
+                            {{ film.reviewed_by }}</p>
+                        <p class="card-reveal-info">
+                        </p>
+                        </p>
+                        <p class="card-reveal-description">{{ film.review }}</p>
+                        <p class="card-reveal-info"><em>added by: {{ film.reviewed_by }}</em></p>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</main>
 {% endblock %}
-
-
-</body>
-
-</html>

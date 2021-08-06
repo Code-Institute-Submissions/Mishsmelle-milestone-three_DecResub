@@ -24,6 +24,14 @@ def get_films():
     films = mongo.db.films.find()
     return render_template("search.html", films=films)
 
+@app.route("/index")
+def index():
+    recently_added_films = list(
+        mongo.db.films.find().sort("time_added", -1).limit(3))
+    return render_template(
+        "index.html", recently_added_films=recently_added_films)
+
+
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -117,7 +125,8 @@ def upload_review():
             "review": request.form.get("review"),
             "is_watchlist": is_watchlist,
             "date_added": request.form.get("date_added"),
-            "reviewed_by": session["user"]
+            "reviewed_by": session["user"],
+            "image_url": request.form.get("image_url")
         }
         mongo.db.films.insert_one(film)
         flash("Review Successfully Added")
@@ -138,7 +147,8 @@ def edit_film(film_id):
             "review": request.form.get("review"),
             "is_watchlist": is_watchlist,
             "date_added": request.form.get("date_added"),
-            "reviewed_by": session["user"]
+            "reviewed_by": session["user"],
+            "image_url": request.form.get("image_url")
         }
         mongo.db.films.update({"_id": ObjectId(film_id)}, submit)
         flash("Review Successfully Updated")
@@ -152,14 +162,6 @@ def delete_film(film_id):
     mongo.db.films.remove({"_id": ObjectId(film_id)})
     flash("Review Successfully Deleted")
     return redirect(url_for("get_films"))
-
-
-@app.route("/")
-@app.route("/index")
-def index():
-    index = mongo.db.films.find()
-    return render_template("index.html", index=index)
-
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
