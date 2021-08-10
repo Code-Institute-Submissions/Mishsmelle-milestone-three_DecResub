@@ -1,5 +1,5 @@
 body {
-    background-color: #CDEAF4;
+    background-color: #fffff;
 }
 
 .text-shadow {
@@ -55,7 +55,7 @@ main {
 /* Home Page Image row*/
 
 .card-image-grid {
-    height: 700px;
+    height: 200px;
     overflow: hidden;
     margin: 15px;
     border: 1px solid #ccc;
@@ -90,7 +90,7 @@ main {
 /*Film cards*/
 
 .card-image-grid {
-    height: 300px;
+    height: 300 px;
     overflow: hidden;
 }
 
