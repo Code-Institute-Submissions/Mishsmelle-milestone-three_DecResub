@@ -12,4 +12,39 @@
     </div>
 </div>
 
+<h4 class="center-align">My Reviews</h4>
+{% if user_films|length > 0 %}
+<!--Movie cards-->
+<div class="row">
+    <ul class="collapsible">
+        {% for film in user_films %}
+        <li>
+            <div class="collapsible-header white-text blue-grey darken-4 text-shadow">
+                <i class="fas fa-caret-down"></i>
+                <img class="activator" src="{{ film.image_url }}" alt="default film image" style=max-width:50px; />
+                <strong>{{ film.film_title }}</strong>
+                {% if film.is_watchlist == "on" %}
+                <i class="fas fa-film blue-grey-text text-lighten-2 tooltipped" data-position="right"
+                    data-tooltip="Added to your watchlist"></i>
+                {% endif %}
+            </div>
+            <div class="collapsible-body">
+                <p>Date Added: {{ film.date_added }}</p>
+                <strong>Review</strong> {{ film.genre }}
+                <p>{{ film.review }}</p>
+                <p><em>by: {{ film.reviewed_by }}</em></p>
+                {% if session.user|lower == film.reviewed_by|lower %}
+                <a href="{{ url_for('delete_film', film_id=film._id)}}" class="btn-small green accent-4">Delete</a>
+                <a href="{{ url_for('edit_film', film_id=film._id)}}" class="btn-small light-blue lighten-1">Edit</a>
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+{% else %}
+<h3 class="red-text text-darken-4 center-align">You have not added any movies yet.</h3>
+{% endif %}
+
 {% endblock %}
