@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hello Flask</title>
-</head>
 
-<body>
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel">
+            <h3 class="center-align light-blue-text text-darken-4">
+                About
+            </h3>
+            <p>
+                The Upshot is an online film review site. Users can create an account to upload their own reviews to the
+                database, as well as browse the current collection and create their very own watchlist. We provide film
+                fans with original editorial content on our site and through social channels, produce a fun and
+                informative monthly newsletter, and hold live events for fans across the country. If you’re an
+                entertainment fan looking for a recommendation, or to share an opinion, you’ve come to the right place.
+            </p>
+            <img src="{{ url_for('static', filename='images/upshot-team-photo.jpg') }}" alt="upshot logo"
+                style="max-width: 400px;" />
+        </div>
+    </div>
+</div>
 
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </nav>
-
-    <h1>About Page</h1>
-
-</body>
-
-</html>
+{% endblock %}
