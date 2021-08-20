@@ -1,245 +1,69 @@
 {% extends "base.html" %}
-
-
-
-
 {% block content %}
 
 
 <h3 class="light-blue-text text-darken-4 center-align">Edit your review</h3>
-
-
 <div class="row card-panel grey lighten-5">
-
-
     <form class="col s12" method="POST" action="{{ url_for('edit_film', film_id=film._id) }}">
-
-
         <!-- genre selection -->
-
-
         <div class="row">
-
-
             <div class="input-field col s12">
-
-
                 <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-
-
                 <select id="genre_name" name="genre_name" class="validate" required>
-
-
                     <option value="" disabled>Choose genre</option>
-
-
                     {% for genre in genres %}
-
-
                     {% if genre.genre_name == film.genre_name %}
-
-
                     <option value="{{ genre.genre_name }}" selected>{{ genre.genre_name }}</option>
-
-
                     {% else %}
-
-
                     <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
-
-
                     {% endif %}
-
-
                     {% endfor %}
-
-
                 </select>
-
-
                 <label for="genre_name">film genre</label>
-
-
             </div>
-
-
         </div>
-
-
         <!-- film title -->
-
-
         <div class="row">
-
-
             <div class="input-field col s12">
-
-
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-
-
                 <input id="film_title" name="film_title" value="{{ film.film_title }}" type="text" class="validate"
                     required>
-
-
                 <label for="film_name">Film Title</label>
-
-
             </div>
-
-
         </div>
-
-
         <!-- Review section -->
-
-
         <div class="row">
-
-
             <div class="input-field col s12">
-
-
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-
-
                 <textarea id="review" name="review" class="materialize-textarea validate" required>
-
-
                        {{- film.review -}}
-
-
                    </textarea>
-
-
                 <label for="review">Your Review</label>
-
-
             </div>
-
-
         </div>
-
-
         <!-- due date picker -->
-
-
         <div class="row">
-
-
             <div class="input-field col s12">
-
-
                 <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-
-
                 <input id="date_added" name="date_added" type="text" value="{{ film.date_added }}"
                     class="datepicker validate" required>
-
-
                 <label for="date_added">Date added</label>
-
-
             </div>
-
-
         </div>
-
-
-        <!-- Add to watchlist switch -->
-
-
-        <div class="row">
-
-
-            <div class="input-field col s12">
-
-
-                <div class="switch">
-
-
-                    <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
-
-
-                    <label for="is_watchlist">
-
-
-                        {% if film.is_watchlist == "on" %}
-
-
-                        <input type="checkbox" id="is_watchlist" name="is_watchlist" checked>
-
-
-                        {% else %}
-
-
-                        <input type="checkbox" id="is_watchlist" name="is_watchlist">
-
-
-                        {% endif %}
-
-
-                        <span class="lever"></span>
-
-
-                        Add to Watchlist
-
-
-                    </label>
-
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
         <!-- submit button -->
-
-
         <div class="row">
-
-
             <div class="col s12 center-align">
-
-
                 <!-- cancel button -->
-
-
                 <a href="{{ url_for('get_films') }}" class="btn-large red text-shadow">
-
-
                     Cancel <i class="fas fa-times-circle right"></i>
-
-
                 </a>
-
-
                 <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-
-
                     Edit film <i class="fas fa-edit right"></i>
-
-
                 </button>
-
-
             </div>
-
-
         </div>
-
-
     </form>
-
-
 </div>
-
-
-
 
 
 

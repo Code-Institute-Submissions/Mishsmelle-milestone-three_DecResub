@@ -29,9 +29,6 @@
             <i class="fas fa-caret-down"></i>
             <img class="activator" src="{{ film.image_url }}" alt="default film image" style=max-width:50px; />
             <strong>{{ film.film_title }}</strong>
-            {% if film.is_watchlist == "on" %}
-            <i class="fas fa-film blue-grey-text text-lighten-2 tooltipped" data-position="right"
-                data-tooltip="Added to your watchlist"></i>
             {% endif %}
         </div>
         <div class="collapsible-body">

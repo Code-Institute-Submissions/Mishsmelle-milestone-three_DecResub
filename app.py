@@ -125,12 +125,10 @@ def logout():
 @app.route("/upload_review", methods=["GET", "POST"])
 def upload_review():
     if request.method == "POST":
-        is_watchlist = "on" if request.form.get("is_watchlist") else "off"
         film = {
             "genre_name": request.form.get("genre_name"),
             "film_title": request.form.get("film_title"),
             "review": request.form.get("review"),
-            "is_watchlist": is_watchlist,
             "date_added": request.form.get("date_added"),
             "reviewed_by": session["user"],
             "image_url": request.form.get("image_url")
@@ -147,12 +145,10 @@ def upload_review():
 def edit_film(film_id):
 
     if request.method == "POST":
-        is_watchlist = "on" if request.form.get("is_watchlist") else "off"
         submit = {
             "genre_name": request.form.get("genre_name"),
             "film_title": request.form.get("film_title"),
             "review": request.form.get("review"),
-            "is_watchlist": is_watchlist,
             "date_added": request.form.get("date_added"),
             "reviewed_by": session["user"],
             "image_url": request.form.get("image_url")
