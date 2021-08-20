@@ -27,28 +27,31 @@ main {
     flex: 1 0 auto;
 }
 
-/*logo*/
-#logo-img {
+.hero-image {
     margin-top: 15px;
-
-
+    max-width: 100%;
 }
 
-#logo_container {
-    height: 400px;
+#hero_container {
+    margin-top: 15px;
     max-width: 100%;
     position: relative;
 }
 
-.responsive {
-    display: 100%;
-    height: auto;
+.hero-image img {
+    max-width: 100%;
+    text-align: center;
 }
 
-@media (max-width:400px) {
-    .logo_container {
+@media (max-width: 600px) {
+    #hero_container {
         max-width: 100%;
         max-height: 100%;
+    }
+
+    .responsive {
+        display: 100%;
+        height: auto;
     }
 }
 
@@ -133,7 +136,6 @@ main {
     min-width: 100%;
     min-height: 100%;
 }
-
 
 .card-background {
     margin-left: 0px !important;
