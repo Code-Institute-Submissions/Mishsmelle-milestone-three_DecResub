@@ -18,19 +18,19 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route("/")
-@app.route("/get_films")
-def get_films():
-    films = mongo.db.films.find()
-    return render_template("search.html", films=films)
-
-
 @app.route("/index")
 def index():
     recently_added_films = list(
         mongo.db.films.find().sort("time_added", -1).limit(3))
     return render_template(
         "index.html", recently_added_films=recently_added_films)
+
+
+@app.route("/")
+@app.route("/get_films")
+def get_films():
+    films = mongo.db.films.find()
+    return render_template("search.html", films=films)
 
 
 @app.route("/search", methods=["GET", "POST"])
