@@ -26,7 +26,7 @@
             <!--top nav bar-->
             <nav class="nav-extended text-shadow black darken-2">
                 <div class="nav-wrapper">
-                    <a href="{{ url_for('get_films') }}" class="brand-logo">The Upshot</a>
+                    <a href="{{ url_for('index') }}" class="brand-logo">The Upshot</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="{{ url_for('index') }}">Home</a></li>
@@ -86,23 +86,18 @@
                 <div class="col l6 s12">
                     <p class="grey-text text-lighten-4">For exclusive invites to our screenings, and the latest reviews,
                         sign up for our newsletter. </p>
-                    <button class="open-button" onclick="openForm()">
-                        <h5 class="white-text">Join our mailing list</h5>
-                    </button>
-                    <div class="form-popup" id="myForm">
-                        <form action="/action_page.php" class="form-container">
-                            <p>Join The Upshot mailing list</p>
+                    <form id="form">
+                        <div class="field">
+                            <label for="from_name">Name</label>
+                            <input type="text" name="from_name" id="from_name">
+                        </div>
+                        <div class="field">
+                            <label for="reply_to">Email Address</label>
+                            <input type="text" name="reply_to" id="reply_to">
+                        </div>
 
-                            <label for="f_name"><b> Full Name</b></label>
-                            <input type="text" placeholder="Full Name" name="f_name" required>
-
-                            <label for="email"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" name="email" required>
-
-                            <button type="submit" class="btn">Sign Up</button>
-                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                        </form>
-                    </div>
+                        <input type="submit" id="button" value="Subscribe">
+                    </form>
 
                 </div>
                 <div class="col l4 offset-l2 s12">
@@ -137,8 +132,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
     </script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}
-    {% endblock %}
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("user_1ilrZEz7NMfb6rf9JVGii");
+        })();
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    {% block scripts %} {% endblock %}
 </body>
 
 </html>

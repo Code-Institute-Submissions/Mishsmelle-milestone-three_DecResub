@@ -60,9 +60,30 @@ $(document).ready(function () {
 });
 //footer//
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    document.getElementById("form").style.display = "block";
 }
 
 function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+    document.getElementById("form").style.display = "none";
 }
+const btn = document.getElementById('button');
+
+document.getElementById('form')
+    .addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        btn.value = 'Sending...';
+
+        const serviceID = 'default_service';
+        const templateID = 'template_k1onx0t';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.value = 'Sign Up';
+                alert('Subscribed!');
+                document.getElementById('form').reset();
+            }, (err) => {
+                btn.value = 'Sign Up';
+                alert(JSON.stringify(err));
+            });
+    });
