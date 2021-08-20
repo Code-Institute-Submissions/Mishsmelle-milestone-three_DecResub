@@ -10,9 +10,9 @@
 
 <main class="container">
     <p class="center-align">
-        Create a watchlist based on users reviews or write your own reviews for others!<br />
+        Read the latest film reviews uploaded by our users or write your own reviews for others!<br />
         {% if not session.user %}
-        To submit a new reviews and start creating your watchlist click here. <a href="{{ url_for('create') }}">Create
+        Click here to create your own account and submit a new reviews. <a href="{{ url_for('create') }}">Create
             an account</a><br />
         Already registered? <a href="{{ url_for('login') }}">Log in</a>
         {% endif %}
