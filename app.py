@@ -33,9 +33,9 @@ def get_films():
     return render_template("search.html", films=films)
 
 
-@app.route("/search", methods=["GET", "POST"])
+@app.route("/search", methods=["GET"])
 def search():
-    query = request.form.get("query")
+    query = request.args.get("query")
     films = list(mongo.db.films.find({"$text": {"$search": query}}))
     return render_template("search.html", films=films)
 
