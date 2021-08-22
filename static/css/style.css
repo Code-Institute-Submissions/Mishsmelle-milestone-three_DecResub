@@ -55,9 +55,26 @@ main {
     }
 }
 
+/*Footer styling*/
+.footer-column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px;
+    /* Should be removed. Only for demonstration */
+}
 
-.page-footer {
-    background-color: #000000;
+/* Clear floats after the columns */
+.footer-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .footer-column {
+        width: 100%;
+    }
 }
 
 .open-button {

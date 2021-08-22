@@ -30,7 +30,6 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="{{ url_for('index') }}">Home</a></li>
-                        <li><a href="{{ url_for('about') }}">About</a></li>
                         {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile Page</a></li>
                         <li><a href="{{ url_for('upload_review') }}">Upload a review</a></li>
@@ -48,7 +47,6 @@
                     <h4 class="center-align blue-grey darken-2">The Upshot</h4>
                 </li>
                 <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('about') }}">About</a></li>
                 {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile Page</a></li>
                 <li><a href="{{ url_for('upload_review') }}">Upload a review</a></li>
@@ -78,51 +76,65 @@
         {% endblock %}
     </main>
     <!--footer-->
-    <footer class="page-footer">
+
+    <div class="footer-row">
+        <div class="footer-column" style="background-color:#000;">
+
+            <p class="grey-text text-lighten-4">For exclusive invites to our screenings, and the latest
+                reviews,
+                sign up for our newsletter. </p>
+            <form id="form">
+                <div class="field">
+                    <label for="from_name">Name</label>
+                    <input type="text" name="from_name" id="from_name">
+                </div>
+                <div class="field">
+                    <label for="reply_to">Email Address</label>
+                    <input type="text" name="reply_to" id="reply_to">
+                </div>
+
+                <input type="submit" id="button" value="Subscribe">
+            </form>
+        </div>
+        <div class="footer-column" style="background-color:#000;">
+            <h5 class="white-text">About Us</h5>
+            <p style="color: white" ;>
+                The Upshot is an online film review site. Users can create an account to upload their own
+                reviews to the database, as well as browse the current collection. We provide film fans with
+                original editorial content on our site and through social channels, produce a fun and
+                informative monthly newsletter, and hold live events for fans across the country. If you’re
+                an
+                entertainment fan looking for a recommendation, or to share an opinion, you’ve come to the
+                right
+                place.
+            </p>
+        </div>
+        <div class="footer-column" style="background-color:#000;">
+            <h5 class="white-text">Find Us on Social</h5>
+            <ul>
+                <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/"><i
+                            class="fab fa-facebook-square"> Facebook</i></a>
+                </li>
+                <li><a class="grey-text text-lighten-3" href="https://twitter.com/?lang=en"><i class="fab fa-twitter">
+                            Twitter</i></a></li>
+                <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/"><i class="fab fa-instagram">
+                            Instagram</i></a>
+                </li>
+                <li><a class="grey-text text-lighten-3" href="https://www.pinterest.ie/"><i class="fab fa-pinterest">
+                            Pinterest</i></a>
+                </li>
+                <li><a class="grey-text text-lighten-4 right" href="mailto:theupshotfilmreviews@gmail.com">Get
+                        in touch</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <div class="footer-copyright">
         <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <p class="grey-text text-lighten-4">For exclusive invites to our screenings, and the latest reviews,
-                        sign up for our newsletter. </p>
-                    <form id="form">
-                        <div class="field">
-                            <label for="from_name">Name</label>
-                            <input type="text" name="from_name" id="from_name">
-                        </div>
-                        <div class="field">
-                            <label for="reply_to">Email Address</label>
-                            <input type="text" name="reply_to" id="reply_to">
-                        </div>
-
-                        <input type="submit" id="button" value="Subscribe">
-                    </form>
-
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Find Us on Social</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/"><i
-                                    class="fab fa-facebook-square"> Facebook</i></a>
-                        </li>
-                        <li><a class="grey-text text-lighten-3" href="https://twitter.com/?lang=en"><i
-                                    class="fab fa-twitter"> Twitter</i></a></li>
-                        <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/"><i
-                                    class="fab fa-instagram"> Instagram</i></a>
-                        </li>
-                        <li><a class="grey-text text-lighten-3" href="https://www.pinterest.ie/"><i
-                                    class="fab fa-pinterest"> Pinterest</i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            © 2021 The Upshot Film Reviews. Copyrighted.
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2021 The Upshot Film Reviews. Copyrighted.
-                <a class="grey-text text-lighten-4 right" href="mailto:theupshotfilmreviews@gmail.com">Get in touch</a>
-            </div>
-        </div>
-    </footer>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
