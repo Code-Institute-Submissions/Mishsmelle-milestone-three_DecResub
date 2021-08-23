@@ -73,7 +73,9 @@ def create():
 
     return render_template("create.html")
 
-# log in page 
+# log in page
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -103,7 +105,9 @@ def login():
 
     return render_template("login.html")
 
-#profile page 
+# profile page
+
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
@@ -118,6 +122,8 @@ def profile(username):
     return redirect(url_for("login"))
 
 # log out function
+
+
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -125,7 +131,9 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-# upload a review 
+# upload a review
+
+
 @app.route("/upload_review", methods=["GET", "POST"])
 def upload_review():
     if request.method == "POST":
@@ -144,7 +152,9 @@ def upload_review():
     genres = mongo.db.genres.find().sort("genre", 1)
     return render_template("upload_review.html", genres=genres)
 
-# edit your review 
+
+# edit your review
+
 @app.route("/edit_film/<film_id>", methods=["GET", "POST"])
 def edit_film(film_id):
 
@@ -163,7 +173,9 @@ def edit_film(film_id):
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("edit_film.html", film=film, genres=genres)
 
-#delete your review 
+# Delete your review
+
+
 @app.route("/delete_film/<film_id>")
 def delete_film(film_id):
     mongo.db.films.remove({"_id": ObjectId(film_id)})
