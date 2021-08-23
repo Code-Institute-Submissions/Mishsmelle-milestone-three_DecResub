@@ -17,14 +17,18 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# home page recently added films
+
 
 @app.route("/")
 @app.route("/index")
 def index():
     recently_added_films = list(
-        mongo.db.films.find().sort("date_added", -1).limit(4))
+        mongo.db.films.find().sort("date_added", -1).limit(6))
     return render_template(
         "index.html", recently_added_films=recently_added_films)
+
+# home page search bar
 
 
 @app.route("/get_films")
@@ -39,12 +43,12 @@ def search():
     films = list(mongo.db.films.find({"$text": {"$search": query}}))
     return render_template("index.html", films=films)
 
+# if query:
+#     flash("No review found. Create your own review now.")
+# return redirect(url_for("uplaod_review"))
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
 
-
+# create account page
 @app.route("/create", methods=["GET", "POST"])
 def create():
     if request.method == "POST":
@@ -69,7 +73,7 @@ def create():
 
     return render_template("create.html")
 
-
+# log in page 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -99,7 +103,7 @@ def login():
 
     return render_template("login.html")
 
-
+#profile page 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
@@ -113,7 +117,7 @@ def profile(username):
 
     return redirect(url_for("login"))
 
-
+# log out function
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -121,7 +125,7 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-
+# upload a review 
 @app.route("/upload_review", methods=["GET", "POST"])
 def upload_review():
     if request.method == "POST":
@@ -140,7 +144,7 @@ def upload_review():
     genres = mongo.db.genres.find().sort("genre", 1)
     return render_template("upload_review.html", genres=genres)
 
-
+# edit your review 
 @app.route("/edit_film/<film_id>", methods=["GET", "POST"])
 def edit_film(film_id):
 
@@ -159,7 +163,7 @@ def edit_film(film_id):
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("edit_film.html", film=film, genres=genres)
 
-
+#delete your review 
 @app.route("/delete_film/<film_id>")
 def delete_film(film_id):
     mongo.db.films.remove({"_id": ObjectId(film_id)})

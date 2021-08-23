@@ -7,7 +7,7 @@
         style="width:100%;">
 </div>-
 
-
+<!-- Intro paragraph incuding links to create an accoutn and log in-->
 <main class="container">
     <p class="center-align">
         Read the latest film reviews uploaded by our users or write your own reviews for others!<br />
@@ -18,8 +18,8 @@
         {% endif %}
     </p>
     <h3 class="recently-added center-align">Recently added reviews</h3>
-    <!--Review cards-->
 
+    <!--Review cards-->
     <div class="row">
         <ul class="film-cards">
             {% for film in recently_added_films %}
@@ -52,6 +52,12 @@
         </ul>
     </div>
 
+    <div>
+        <p>
+            Search the database for any film by title.
+        </p>
+    </div>
+    <!-- Search bar to find film in database -->
     <div class="row card-panel grey lighten-5">
         <form action="{{ url_for('search') }}" method="get" class="col s12">
             <div class="row valign-wrapper center-align">
@@ -69,28 +75,5 @@
             </div>
         </form>
     </div>
-
-    <ul class="collapsible">
-        {% for film in films %}
-        <li>
-            <div class="collapsible-header white-text blue-grey darken-4 text-shadow">
-                <i class="fas fa-caret-down"></i>
-                <img class="activator" src="{{ film.image_url }}" alt="default film image" style=max-width:50px; />
-                <strong>{{ film.film_title }}</strong>
-            </div>
-            <div class="collapsible-body">
-                <p>Date Added: {{ film.date_added }}</p>
-                <strong>Review</strong> {{ film.genre }}
-                <p>{{ film.review }}</p>
-                <p><em>by: {{ film.reviewed_by }}</em></p>
-                {% if session.user|lower == film.reviewed_by|lower %}
-                <a href="{{ url_for('delete_film', film_id=film._id)}}" class="btn-small green accent-4">Delete</a>
-                <a href="{{ url_for('edit_film', film_id=film._id)}}" class="btn-small light-blue lighten-1">Edit</a>
-                {% endif %}
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
-
 </main>
 {% endblock %}
