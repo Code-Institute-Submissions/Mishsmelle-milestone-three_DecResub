@@ -5,7 +5,7 @@
 <div class="hero-image">
     <img src="{{ url_for('static', filename='images/upshot_banner_1.png') }}" class="heroimg" alt="upshot banner image"
         style="width:100%;">
-</div>-
+</div>
 
 <!-- Intro paragraph incuding links to create an accoutn and log in-->
 <main class="container">
@@ -66,10 +66,10 @@
                     <label for="query">Search Reviews</label>
                 </div>
                 <div class="col s12 m4">
-                    <a href="{{ url_for('get_films') }}" class="grey btn text-shadow">Reset</a>
                     <button type="submit" class="black darken-1 btn text-shadow">
                         <i class="fas fa-search left"></i> Search
                     </button>
+                    <a href="{{ url_for('get_films') }}" class="grey btn text-shadow">Reset</a>
                 </div>
             </div>
         </form>
