@@ -26,8 +26,7 @@
                 <strong>{{ film.film_title }}</strong>
             </div>
             <div class="collapsible-body">
-                <p>Release Date: {{ film.released }}</p>
-                <strong>Review</strong> {{ film.genre }}
+                <strong>Genre</strong> {{ film.genre_name }}
                 <p>{{ film.review }}</p>
                 <p><em>by: {{ film.reviewed_by }}</em></p>
                 {% if session.user|lower == film.reviewed_by|lower %}
