@@ -76,7 +76,6 @@
     </div>
     {% if request.path == url_for('search') %}
     <p class="center-align">Showing results for <i>{{search_str}}</i></p>
-    {% endif %}
     {% if films|length > 0 %}
     <!--Film cards-->
     <div class="row">
@@ -108,13 +107,13 @@
                 </div>
                 <p class="card-reveal-description">{{ film.review}}</p>
                 <p class="card-reveal-info"><em>added by: {{ film.reviewed_by }}</em></p>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
-    </div>
-    </li>
-    {% endfor %}
-    </ul>
     {% else %}
     <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+    {% endif %}
     {% endif %}
 </main>
 {% endblock %}
