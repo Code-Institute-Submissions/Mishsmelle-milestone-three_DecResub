@@ -63,7 +63,7 @@
                 <div class="input-field col s12 m8">
                     <i class="fas fa-search prefix black-text text-darken-4"></i>
                     <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                    <label for="query">Search Reviews</label>
+                    <label for="query" style="font-size: 75%;">Search Reviews</label>
                 </div>
                 <div class="col s12 m4">
                     <button type="submit" class="black darken-1 btn text-shadow">
@@ -74,5 +74,47 @@
             </div>
         </form>
     </div>
+    {% if request.path == url_for('search') %}
+    <p class="center-align">Showing results for <i>{{search_str}}</i></p>
+    {% endif %}
+    {% if films|length > 0 %}
+    <!--Film cards-->
+    <div class="row">
+        <ul class="film-cards">
+            {% for film in films %}
+            <li class="card-sizing card card-background center-align">
+                <div class="card-image-with-button">
+                    <div class="card-image card-image-grid waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ film.image_url }}" alt="film image" />
+                    </div>
+                </div>
+                <div class="card-content card-name">
+                    <span class="card-title title-bottom activator">{{ film.film_title }}</span>
+                </div>
+                <div class="card-reveal card-text">
+                    <div class="card-title">
+                        <i class="material-icons right">close</i>
+                        <strong>{{ film.film_title }}</strong> <br />
+                        <br />
+                        <p class="card-reveal-info"><i class="fas fa-theater-masks prefix cyan-text lighten-1"></i>
+                            {{ film.genre_name }}</p>
+                        <p class="card-reveal-info"><i class="fas fa-text-align cyan-text lighten-1"></i>
+                            {{ film.review }}</p>
+                        <p class="card-reveal-info"><i class="fas fa-profile cyan-text lighten-1"></i>
+                            Reviewed by: {{ film.reviewed_by }}</p>
+                        <p class="card-reveal-info">
+                        </p>
+                    </div>
+                </div>
+                <p class="card-reveal-description">{{ film.review}}</p>
+                <p class="card-reveal-info"><em>added by: {{ film.reviewed_by }}</em></p>
+    </div>
+    </div>
+    </li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+    {% endif %}
 </main>
 {% endblock %}

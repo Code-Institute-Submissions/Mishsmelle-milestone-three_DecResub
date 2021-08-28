@@ -41,7 +41,7 @@ def get_films():
 def search():
     query = request.args.get("query")
     films = list(mongo.db.films.find({"$text": {"$search": query}}))
-    return render_template("index.html", films=films)
+    return render_template("index.html", films=films, search_str=query)
 
 # if query:
 #     flash("No review found. Create your own review now.")
