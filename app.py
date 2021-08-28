@@ -147,7 +147,6 @@ def upload_review():
             "reviewed_by": session["user"],
             "image_url": request.form.get("image_url")
         }
-        print(film)
         mongo.db.films.insert_one(film)
         flash("Review Successfully Added")
         return redirect(url_for("index"))
