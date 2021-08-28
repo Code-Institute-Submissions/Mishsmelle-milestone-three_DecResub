@@ -147,7 +147,7 @@ def upload_review():
         }
         mongo.db.films.insert_one(film)
         flash("Review Successfully Added")
-        return redirect(url_for("get_films"))
+        return redirect(url_for("index"))
 
     genres = mongo.db.genres.find().sort("genre", 1)
     return render_template("upload_review.html", genres=genres)
