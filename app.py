@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -137,14 +138,16 @@ def logout():
 @app.route("/upload_review", methods=["GET", "POST"])
 def upload_review():
     if request.method == "POST":
+        now = datetime.now()
         film = {
             "genre_name": request.form.get("genre_name"),
             "film_title": request.form.get("film_title"),
             "review": request.form.get("review"),
-            "date_added": request.form.get("date_added"),
+            "date_added": now.strftime("%d/%m/%Y"),
             "reviewed_by": session["user"],
             "image_url": request.form.get("image_url")
         }
+        print(film)
         mongo.db.films.insert_one(film)
         flash("Review Successfully Added")
         return redirect(url_for("index"))
