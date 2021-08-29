@@ -44,11 +44,6 @@ def search():
     films = list(mongo.db.films.find({"$text": {"$search": query}}))
     return render_template("index.html", films=films, search_str=query)
 
-# if query:
-#     flash("No review found. Create your own review now.")
-# return redirect(url_for("uplaod_review"))
-
-
 # create account page
 @app.route("/create", methods=["GET", "POST"])
 def create():
@@ -138,6 +133,7 @@ def logout():
 @app.route("/upload_review", methods=["GET", "POST"])
 def upload_review():
     if request.method == "POST":
+#code credit: https://www.programiz.com/python-programming/datetime/strftime
         now = datetime.now()
         film = {
             "genre_name": request.form.get("genre_name"),

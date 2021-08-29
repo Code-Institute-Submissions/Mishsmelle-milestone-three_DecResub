@@ -66,35 +66,49 @@ The Upshot is a website for a local film club. Users will be able to create a pr
  
 1. [Bootstrap 4.4.1:](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
    - Bootstrap was used to assist with the responsiveness and styling of the website.
-1. [Hover.css:](https://ianlunn.github.io/Hover/)
-   - Hover.css was used on the Social Media icons in the footer to add the float transition while being hovered over.
-1. [Google Fonts:](https://fonts.google.com/)
+2. [Materialise:](https://materializecss.com/)
+   - Materialise was used as the frame work for different areas such as the nav bar and my reviews collapsible menu. 
+3. [Google Fonts:](https://fonts.google.com/)
    - Google fonts were used to import the 'Titillium Web' font into the style.css file which is used on all pages throughout the project.
-1. [Font Awesome:](https://fontawesome.com/)
+4. [Font Awesome:](https://fontawesome.com/)
    - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
-1. [jQuery:](https://jquery.com/)
+5. [jQuery:](https://jquery.com/)
    - jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
-1. [Git](https://git-scm.com/)
+6. [Git](https://git-scm.com/)
    - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-1. [GitHub:](https://github.com/)
+7. [GitHub:](https://github.com/)
    - GitHub is used to store the projects code after being pushed from Git.
-1. [Canva:](https://www.canva.com/en_gb/)
+8. [Canva:](https://www.canva.com/en_gb/)
    - Canva was used to create the logo, resizing images and editing photos for the website.
-1. [Balsamiq:](https://balsamiq.com/)
+9. [Balsamiq:](https://balsamiq.com/)
    - Balsamiq was used to create the [wireframes](https://github.com/) during the design process.
-1. [MongoDB:](https://www.mongodb.com/cloud/atlas)
+10. [MongoDB:](https://www.mongodb.com/cloud/atlas)
    - MongoDB was used to create the database.
-1. [Heroku:](https://dashboard.heroku.com/login)
+11. [Heroku:](https://dashboard.heroku.com/login)
    - Heroku was used to deploy the application.
- 
- 
- 
+
+
 ## Testing
  
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
- 
--   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
+
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - 
+![css validator image](static/images/README_images/CSS_validator.png)
+
+[HTML Validator](https://validator.w3.org/) As jinga was used in the HTML this file was tested by viewing the Page Source and then copying the code into the validator via direct input. 
+
+![create account html validator image](static/images/README_images/html_validator_create_account.png)
+![edit film html validator image](static/images/README_images/html_validator_edit_film.png)
+![home page html validator image](static/images/README_images/html_validator_home_page.png)
+![login html validator image](static/images/README_images/html_validator_login.png)
+![profile html validator image](static/images/README_images/html_validator_profile.png)
+![upload review html validator image](static/images/README_images/html_validator_upload_review.png)
+
+[Google Lighthouse Score test](https://developers.google.com/web/tools/lighthouse)
+![lighthouse score](static/images/README_images/lighthouse_image.png)
+
+Email to personal account testing newsletter subscription
+![Newsletter subscription testing](static/images/README_images/newsletter_subscription_email.png)
  
 ### Testing User Stories from User Experience (UX) Section
  
