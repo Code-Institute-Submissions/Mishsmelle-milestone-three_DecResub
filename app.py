@@ -165,7 +165,6 @@ def edit_film(film_id):
             "genre_name": request.form.get("genre_name"),
             "film_title": request.form.get("film_title"),
             "review": request.form.get("review"),
-            "date_added": request.form.get("date_added"),
             "reviewed_by": session["user"],
             "image_url": request.form.get("image_url")
         }
