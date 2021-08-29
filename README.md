@@ -1,10 +1,12 @@
 <h1 align="center">The Upshot. Galway Film Club. </h1>
  
 [View the live project here.](http://the-upshot-ms3.herokuapp.com/index)
+
+![responsive preview](static/images/README_images/responsive_test_screensize.png)
  
 This is a presentation website for Milestone Project three with Code Institute. This project will focus on data centric development utilising tools such as MongoDb.
  
-The Upshot is a website for a local film club. Users will be able to create a profile, log in, read reviews and search for films by title and genre and upload their own content to the site.
+The Upshot is a website for a local film club. Users will be able to create a profile, log in, read reviews,  search for films by title and upload their own content to the site.
  
 <h2 align="center"><img src="https://i.ibb.co/TYvTXz1/Example-CI.png"></h2>
  
