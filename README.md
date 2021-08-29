@@ -105,10 +105,13 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 ![upload review html validator image](static/images/README_images/html_validator_upload_review.png)
 
 [PEP8 Online Checker](http://pep8online.com/checkresult)
-
 ![results from pep8 check](static/images/README_images/PEP8_online_check.png)
+
+
 [Google Lighthouse Score test](https://developers.google.com/web/tools/lighthouse)
-![lighthouse score](static/images/README_images/lighthouse_image.png)
+![lighthouse score](static/images/README_images/Lighthouse-report.png)
+
+The performance score is lower we would liek to see here but on further review this is becuase the images are sourced via linkes from third party sites and not actually affecting the performance of our site. 
 
 Email to personal account testing newsletter subscription
 ![Newsletter subscription testing](static/images/README_images/newsletter_subscription_email.png)
