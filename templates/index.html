@@ -8,7 +8,7 @@
 </div>
 
 <!-- Intro paragraph incuding links to create an accoutn and log in-->
-<main class="container">
+<div class="container">
     <p class="center-align">
         Read the latest film reviews uploaded by our users or write your own reviews for others!<br />
         {% if not session.user %}
@@ -116,5 +116,5 @@
     <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
     {% endif %}
     {% endif %}
-</main>
+</div>
 {% endblock %}
