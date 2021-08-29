@@ -170,9 +170,9 @@ Email to personal account testing newsletter subscription
  
 ### Known Bugs
  
--   On some mobile devices the Hero Image pushes the size of screen out more than any of the other content on the page.
-   -   A white gap can be seen to the right of the footer and navigation bar as a result.
--   On Microsoft Edge and Internet Explorer Browsers, all links in Navbar are pushed upwards when hovering over them.
+-   The performace score is lower than expected as the images as sourced from external sites so not actually reflecting the site. 
+-   The site loads a bit slower than I would have liked but after numerous rounds of testing and fine tuning my code I could not get it as quick as I would like and all tests were coming back fine. 
+_   The subscribe button in the footer is white on grey and hard to read but was unable to change this. 
  
 ## Deployment
  
