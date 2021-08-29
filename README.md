@@ -22,38 +22,38 @@ The Upshot is a website for a local film club. Users will be able to create a pr
  
        1. As a Returning Visitor, I want to create a user account.
        2. As a Returning Visitor, I want to find a specific film to read the reviews.
-       3. As a Returning Visitor, I want to read about any live events they have coming up.
+       3. As a Returning Visitor, I want see my profile page.
  
    -  #### Frequent User Goals
-       1. As a Frequent User, I want to upload my own reviews to the website
-       2. As a Frequent User, I want to check to for the latest reviews posted by other users.
+       1. As a Frequent User, I want to upload my own reviews to the website.
+       2. As a Frequent User, I want to check for the latest reviews posted by other users.
        3. As a Frequent User, I want to sign up to the Newsletter so that I can hear about film news and any upcoming events.
  
 -  ### Design
    -  #### Colour Scheme
-       -   The two main colours used are Black and White.
+       -   The two main colours used are Black and White, keeping in tone with the filmic aesthetic. the site is colourful from the content being uploading by the users so the backgrounds are kept neutral to not create to much noise on the page. 
  
    -  #### Typography
-       -   The primary font used is Helvetica, this clean crisp modern font looks great black on white, is easy to read and in keeping with the modern, stylish feel of the site.
+       -   The primary font used is Oswald, this clean crisp modern font looks great black on white, is easy to read and in keeping with the modern, stylish feel of the site.
  
    -  #### Imagery
-       -   The imagery will be primarily images from each of the films posted in the database.
+       -   The imagery will be primarily images from each of the films posted in the database. The banner image was created by myself using Canva.  
  
 *  ### Wireframes
  
-   -   Home Page Wireframe - [View](https://github.com/)
+   -   Home Page Wireframe - [View](static/images/README_images/Upshot wireframe.png)
  
-   -   Mobile Wireframe - [View](https://github.com/)
- 
-   -   Contact Us Page Wireframe - [View](https://github.com/)
+   -   Mobile Wireframe - [View](static/images/README_images/upshot_mobile_wireframe.png)
  
 ## Features
  
 -   Responsive on all device sizes
  
 -   Interactive elements
- 
-## Technologies Used
+
+-   Ability to create, locate, display, edit and delete records. 
+
+-   Data Model. 
  
 ### Languages Used
  
@@ -104,6 +104,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 ![profile html validator image](static/images/README_images/html_validator_profile.png)
 ![upload review html validator image](static/images/README_images/html_validator_upload_review.png)
 
+[PEP8 Online Checker](http://pep8online.com/checkresult)
+
+![results from pep8 check](static/images/README_images/PEP8_online_check.png)
 [Google Lighthouse Score test](https://developers.google.com/web/tools/lighthouse)
 ![lighthouse score](static/images/README_images/lighthouse_image.png)
 
@@ -116,59 +119,44 @@ Email to personal account testing newsletter subscription
  
   1. As a First Time Visitor, I want to learn about The Upshot and what they do.
     
-       1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to the page of their choice. Underneath there is a Hero Image with Text and a "Learn More" Call to action button.
-       2. The main points are made immediately with the hero image
-       3. The user has two options, click the call to action buttons or scroll down, both of which will lead to the same place, to learn more about the organisation.
+       1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to the page of their choice. Underneath there is a Hero Image followed by text inviting users to log in our create and account. 2. The footer contains an About Us section to learn more about the organisation. 
+       3. The pages and blocks of text were kept minimal to make it very clear what the site represents. 
  
    2.  As a First Time Visitor, I want to be able to search the film content on the site.
      
        1. The site has been designed to be fluid and never to entrap the user. At the top of each page there is a clean navigation bar, each link describes what the page they will end up at clearly.
-       2. At the bottom of the first 3 pages there is a redirection call to action to ensure the user always has somewhere to go and doesn't feel trapped as they get to the bottom of the page.
-       3. On the Contact Us Page, after a form response is submitted, the page refreshes and the user is brought to the top of the page where the navigation bar is.
+       2. The most recent reviews are front and centre on the home page and reviews can be read by just clicking on the image. the search bar allows users to type in any film they are looking for. 
+       3. The users profile page keeps a visible list fo their uploaded content. 
  
    3.  As a First Time Visitor, I want to see what social media following they have.
  
-       1. Once the new visitor has read the About Us and What We Do text, they will notice the Why We are Loved So Much section.
-       2. The user can also scroll to the bottom of any page on the site to locate social media links in the footer.
-       3. At the bottom of the Contact Us page, the user is told underneath the form, that alternatively they can contact the organisation on social media which highlights the links to them.
+       1. Links to all The Upshots social media pages is visible in the footer. 
+       
  
 -  #### Returning Visitor Goals
  
    1. As a Returning Visitor, I want to create a user account.
   
-       1. These are clearly shown in the banner message.
-       2. They will be directed to a page with another hero image and call to action.
+       1. The main navigation bar and the text under the hero image include links for new users to navigate to the create an account page. 
+       2.Once a username and password has been chosen, users will redirect to their own profile page. 
  
    2.  As a Returning Visitor, I want to find a specific film to read the reviews.
  
-       1. The navigation bar clearly highlights the "Contact Us" Page.
-       2. Here they can fill out the form on the page or are told that alternatively they can message the organisation on social media.
-       3. The footer contains links to the organisations Facebook, Twitter and Instagram page as well as the organization's email.
-       4. Whichever link they click, it will be open up in a new tab to ensure the user can easily get back to the website.
-       5. The email button is set up to automatically open up your email app and autofill there email address in the "To" section.
+       1. The home page contain a search bar that will allow users to type in the film title they are looking for and search the entire database. If a result is found, a film card will open under the search bar. If not, a flash message of 'no results found' will be displayed. 
  
-   3.  As a Returning Visitor, I want to read about any live events they have coming up.
- 
-       1. The Facebook Page can be found at the footer of every page and will open a new tab for the user and more information can be found on the Facebook page.
-       2. Alternatively, the user can scroll to the bottom of the Home page to find the Facebook Group redirect card and can easily join by clicking the "Join Now!" button which like any external link, will open in a new tab to ensure they can get back to the website easily.
-       3. If the user is on the "Our Favourites" page they will also be greeted with a call to action button to invite the user to the Facebook group. The user is incentivized as they are told there is a weekly favourite product posted in the group.
+   3.  As a Returning Visitor, I want to see my profile page. 
+        1. Once the returning user creates the account. They will be redirected to their profile page and then going forward everytime they log in they will redirect to their profile page. 
+      
  
 -  #### Frequent User Goals
  
    1. As a Frequent User, I want to upload my own reviews to the website
  
-       1. The user would already be comfortable with the website layout and can easily click the banner message.
- 
-   2.  As a Frequent User, I want to check to for the latest reviews posted by other users.
- 
- 
-       1. The user would already be comfortable with the website layout and can easily click the blog link
+       1. Users who are logged in will see a new navigation bar that includes 'upload your review' where they can add their own content. Once added, this will live on their profile page and can be edited, deleted when they wish. 
  
    3. As a Frequent User, I want to sign up to the Newsletter so that I can hear about film news and any upcoming events.
  
-       1. At the bottom of every page their is a footer which content is consistent throughout all pages.
-       2. To the right hand side of the footer the user can see "Subscribe to our Newsletter" and are prompted to Enter their email address.
-       3. There is a "Submit" button to the right hand side of the input field which is located close to the field and can easily be distinguished.
+      1. The footer contains a block telling users if they would like to hear about live events they can sign up for the newsletter. By entering their name and email address and clicking 'subsribe' they will automatically receive a thanks for subscribing email and details about the newsletter. 
  
 ### Further Testing
  

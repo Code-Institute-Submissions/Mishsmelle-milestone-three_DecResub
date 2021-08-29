@@ -3,8 +3,8 @@
 
 <!--Home page image ...code credit: https://www.w3schools.com/howto/howto_css_hero_image.asp-->
 <div class="hero-image">
-    <img src="{{ url_for('static', filename='images/upshot_banner_1.jpg') }}" class="heroimg" alt="upshot banner image"
-        style="width:100%;">
+    <img src="{{ url_for('static', filename='images/upshot_banner_1-min.png') }}" class="heroimg"
+        alt="upshot banner image" style="width:100%;">
 </div>
 
 <!-- Intro paragraph incuding links to create an accoutn and log in-->
@@ -66,9 +66,9 @@
                     <label for="query" style="font-size: 75%;">Search Reviews</label>
                 </div>
                 <div class="col s12 m4">
-                    <button type="submit" class="black darken-1 btn text-shadow">
+                    <button type="submit" class="black darken-1 btn text-shadow" aria-label="Search button">
                         <i class="fas fa-search left"></i>
-                        <span class="hide-on-small-only" aria-label="Search button">Search</span>
+                        <span class="hide-on-small-only">Search</span>
                     </button>
                     <a href="{{ url_for('get_films') }}" class="grey btn text-shadow">Reset</a>
                 </div>
