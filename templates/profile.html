@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- heading with profile name-->
+<!-- heading with users profile name-->
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="card-panel">
@@ -15,7 +15,7 @@
 <h4 class="center-align">My Reviews</h4>
 {% if user_films|length > 0 %}
 
-<!--Movie cards-->
+<!--Film Review cards-->
 <div class="row">
     <ul class="collapsible">
         {% for film in user_films %}

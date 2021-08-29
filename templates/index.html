@@ -78,7 +78,7 @@
     {% if request.path == url_for('search') %}
     <p class="center-align">Showing results for <i>{{search_str}}</i></p>
     {% if films|length > 0 %}
-    <!--Film cards-->
+    <!--Film cards when results found -->
     <div class="row">
         <ul class="film-cards">
             {% for film in films %}

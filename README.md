@@ -223,7 +223,9 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
  
 ## Credits
- 
+Most of the guidance for this site came from the [Code Institute Mini Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/054c3813e82e4195b5a4d8cd8a99ebaa/)
+In the App.py= dated added uses "now" string code credit=https://www.programiz.com/python-programming/datetime/strftime
+
 ### Code
  
 -   The full-screen hero image code came from this [StackOverflow post](https://stackoverflow.com)

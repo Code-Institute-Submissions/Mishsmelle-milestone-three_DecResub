@@ -27,6 +27,8 @@ main {
     flex: 1 0 auto;
 }
 
+/* Hero Image on home page*/
+
 .hero-image {
     margin-top: 15px;
     max-width: 100%;
@@ -61,7 +63,6 @@ main {
     width: 33.33%;
     padding: 10px;
     height: 300px;
-    /* Should be removed. Only for demonstration */
 }
 
 /* Clear floats after the columns */
@@ -134,7 +135,6 @@ main {
 }
 
 /*Film cards*/
-
 ul:not(.browser-default) {
     list-style-type: none;
 }
@@ -200,6 +200,8 @@ ul:not(.browser-default) {
     position: relative;
 }
 
+/* Edit and Delete buttons */
+
 .btn-delete {
     right: 1px !important;
 }
@@ -226,12 +228,4 @@ ul:not(.browser-default) {
     .container {
         width: 100%;
     }
-}
-
-/*About Page*/
-#about-img {
-    max-width: 218px;
-    display: block;
-    margin: auto;
-
 }
