@@ -54,14 +54,13 @@ def search():
 def sort_reviews():
     reviews = list(mongo.db.reviews.find().sort("title_name", 1))
     return render_template("reviews.html", reviews=reviews)
-    
 
 
-@app.route("/search", methods=["GET"])
-def search():
-    query = request.args.get("query")
-    films = list(mongo.db.films.find({"$text": {"$search": query}}))
-    return render_template("index.html", films=films, search_str=query)
+# @app.route("/search", methods=["GET"])
+# def search():
+#    query = request.args.get("query")
+#    films = list(mongo.db.films.find({"$text": {"$search": query}}))
+#    return render_template("index.html", films=films, search_str=query)
 
 
 @app.route("/create", methods=["GET", "POST"])
@@ -181,4 +180,4 @@ def delete_film(film_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
