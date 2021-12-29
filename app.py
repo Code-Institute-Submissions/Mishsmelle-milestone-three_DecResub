@@ -42,22 +42,9 @@ def search():
 
 
 @app.route("/get_reviews")
-def get_reviews():
-    """
-    get the list of reviews to show on reviews.html
-    """
-    reviews = list(mongo.db.films.find())
-    return render_template("reviews.html", reviews=reviews)
-
-
-@app.route("/see_review/<reviews>", methods=["GET", "POST"])
-def see_review(reviews):
-    """
-    view the full review of individual book
-    """
-    reviews = list(mongo.db.reviews.find({"_id": ObjectId(reviews)}))
-    return render_template("book_review.html", reviews=reviews)
-
+def get_reviews():		
+    films = list(mongo.db.films.find())
+    return render_template("reviews.html", films=films)
 
 @app.route("/create", methods=["GET", "POST"])
 def create():
