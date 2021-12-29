@@ -41,17 +41,22 @@ def search():
     return render_template("index.html", films=films, search_str=query)
 
 
-@app.route("/get_reviews", methods=["GET"])
+@app.route("/get_reviews")
 def get_reviews():
+    """
+    get the list of reviews to show on reviews.html
+    """
     reviews = list(mongo.db.reviews.find())
     return render_template("reviews.html", reviews=reviews)
 
-# search functionality
-# @app.route("/search", methods=["GET", "POST"])
-# def search():
-#    query = request.form.get("query")
-#    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
-#    return render_template("reviews.html", reviews=reviews)
+
+@app.route("/see_review/<reviews>", methods=["GET", "POST"])
+def see_review(reviews):
+    """
+    view the full review of individual book
+    """
+    reviews = list(mongo.db.reviews.find({"_id": ObjectId(reviews)}))
+    return render_template("book_review.html", reviews=reviews)
 
 
 @app.route("/create", methods=["GET", "POST"])
