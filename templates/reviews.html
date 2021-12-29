@@ -1,93 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="col s12 m7">
+<!-- header -->
+<h2 class="header">All Reviews</h2>
 
-    <!-- header -->
-    <h2 class="header">All Reviews</h2>
-    <!-- search all reviews -->
-    <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('search') }}">
-            <div class="row valign-wrapper center-align search-row">
-                <div class="col s12 input-field">
-                    <i class="fas fa-search prefix"></i>
-                    <input type="text" name="query" id="query" minlength="1" class="validate" required>
-                    <label for="query">Search all reviews by Title</label>
-                </div>
-            </div>
-            <div class="row valign-wrapper center-align">
-                <div class="col s12">
-                    <button class="btn waves-effect waves-light red darken-4 center-align search-button" type="submit">
-                        <i class="fas fa-search"></i> Search
-                    </button>
-                    <a href="{{ url_for('get_reviews') }}"
-                        class="btn waves-effect waves-light grey darken-4 center-align search-button">
-                        <i class="reset-icon fas fa-redo"></i>Reset
-                    </a>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- message to display if no matching results found -->
-{% if reviews|length == 0 %}
-<h4>No results found</h4>
-{% endif %}
-
-
-<!-- 'sort by' section -->
-{% if reviews|length > 1 %}
+<!--Film Review cards-->
 <div class="row">
-    <div class="col s6 m3 l2 right sort-column">
-        <span class="sort-dropdown">Sort By:</span>
-        <a class='dropdown-trigger sort-dropdown' href='#' data-target='dropdown3'><i class="fas fa-sort-down"></i></a>
-
-        <!-- Dropdown Structure -->
-        <ul id='dropdown3' class='dropdown-content'>
-            <!-- request.path used to specify action to take based on current url - from Stack overflow (details in README) -->
-            <li><a class="black-text" href="{{ url_for('sort_reviews') }}">Title A-Z</a></li>
-        </ul>
-    </div>
-</div>
-{% endif %}
-<!-- reviews display utilizing materialize css card reveal display -->
-
-<div class="row">
-    <!-- retrieve info from db and fill cards to display -->
-    {% for review in reviews %}
-    <div class="col s12 m6 l4">
-        <div class="card hoverable">
-            <div class="card-image">
-                {% if review.image_url %}
-                <img class="activator category-image" src="{{ review.image_url }}" alt="{{ review.title_name }} image">
-                {% else %}
-                <img class="activator category-image" src="../static/images/new-zombie.jpg" alt="zombie image">
+    <ul class="collapsible">
+        {% for film in films %}
+        <li>
+            <div class="collapsible-header white-text blue-grey darken-4 text-shadow">
+                <i class="fas fa-caret-down"></i>
+                <img class="activator" src="{{ film.image_url }}" alt="default film image" style=max-width:50px; />
+                <strong>{{ film.film_title }}</strong>
+            </div>
+            <div class="collapsible-body">
+                <strong>Genre: </strong> {{ film.genre_name }}
+                <p>{{ film.review }}</p>
+                <p><em>by: {{ film.reviewed_by }}</em></p>
+                {% if session.user|lower == film.reviewed_by|lower %}
+                <a href="{{ url_for('delete_film', film_id=film._id)}}" class="btn-small green accent-4">Delete</a>
+                <a href="{{ url_for('edit_film', film_id=film._id)}}" class="btn-small light-blue lighten-1">Edit</a>
                 {% endif %}
             </div>
+        </li>
+        {% endfor %}
+    </ul>
 
-            <div class="card-content">
-                <span class="category-heading card-title activator">{{ review.category_name }}<i
-                        class="fas fa-arrow-circle-up right"></i></span>
-                <span class="review-heading">Title:</span><span class="review-content">{{ review.title_name }}</span>
-                <br>
-                {% if review.author_name %}
-                <span class="review-heading">Author:</span> <span
-                    class="review-content">{{ review.author_name }}</span><br>
-                {% endif %}
-            </div>
-
-            <div class="card-reveal">
-                <span class="review-heading card-title">Synopsis:<i class="fas fa-arrow-circle-down right"></i></span>
-                <span class="review-content">{{ review.synopsis }}</span><br>
-                <span class="review-heading">Review:</span><br><span
-                    class="review-content">{{ review.user_review }}</span><br>
-                <br><span class="review-heading"><em>Added by:</em></span><span
-                    class="review-content">{{ review.added_by }}</span>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-</div>
-
-{% endblock %}
+    {% endblock %}
