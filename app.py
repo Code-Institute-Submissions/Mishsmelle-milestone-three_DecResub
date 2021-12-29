@@ -33,19 +33,25 @@ def get_films():
     films = mongo.db.films.find()
     return render_template("index.html", films=films)
 
-# Get all reviews
+
+@app.route("/search", methods=["GET"])
+def search():
+    query = request.args.get("query")
+    films = list(mongo.db.films.find({"$text": {"$search": query}}))
+    return render_template("index.html", films=films, search_str=query)
+
+
 @app.route("/get_reviews")
 def get_reviews():
     reviews = list(mongo.db.reviews.find())
     return render_template("reviews.html", reviews=reviews)
 
-
 # search functionality
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
-    return render_template("reviews.html", reviews=reviews)
+# @app.route("/search", methods=["GET", "POST"])
+# def search():
+#    query = request.form.get("query")
+#    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
+#    return render_template("reviews.html", reviews=reviews)
 
 
 # sort-by functionality
@@ -54,13 +60,6 @@ def search():
 def sort_reviews():
     reviews = list(mongo.db.reviews.find().sort("title_name", 1))
     return render_template("reviews.html", reviews=reviews)
-
-
-# @app.route("/search", methods=["GET"])
-# def search():
-#    query = request.args.get("query")
-#    films = list(mongo.db.films.find({"$text": {"$search": query}}))
-#    return render_template("index.html", films=films, search_str=query)
 
 
 @app.route("/create", methods=["GET", "POST"])
