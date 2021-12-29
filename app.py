@@ -41,11 +41,10 @@ def search():
     return render_template("index.html", films=films, search_str=query)
 
 
-@app.route("/get_reviews")
+@app.route("/get_reviews", methods=["GET"])
 def get_reviews():
-    reviews = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    user_films = list(mongo.db.films.find({'reviewed_by': session["user"]}))
+    reviews = list(mongo.db.reviews.find())
+    return render_template("reviews.html", reviews=reviews)
 
 # search functionality
 # @app.route("/search", methods=["GET", "POST"])
@@ -53,6 +52,7 @@ def get_reviews():
 #    query = request.form.get("query")
 #    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
 #    return render_template("reviews.html", reviews=reviews)
+
 
 @app.route("/create", methods=["GET", "POST"])
 def create():
