@@ -46,7 +46,7 @@ def get_reviews():
     """
     get the list of reviews to show on reviews.html
     """
-    reviews = list(mongo.db.reviews.find())
+    reviews = list(mongo.db.films.find())
     return render_template("reviews.html", reviews=reviews)
 
 
