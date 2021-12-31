@@ -42,7 +42,7 @@ def search():
 
 
 @app.route("/get_reviews")
-def get_reviews():		
+def get_reviews():
     films = list(mongo.db.films.find())
     return render_template("reviews.html", films=films)
 
@@ -163,4 +163,4 @@ def delete_film(film_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)

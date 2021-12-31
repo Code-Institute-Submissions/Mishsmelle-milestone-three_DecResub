@@ -1,4 +1,3 @@
-
 const PythonShell = require('python-shell')['PythonShell'];
 const static = require('node-static');
 const http = require('http');

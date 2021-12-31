@@ -103,13 +103,14 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 ![login html validator image](static/images/README_images/html_validator_login.png)
 ![profile html validator image](static/images/README_images/html_validator_profile.png)
 ![upload review html validator image](static/images/README_images/html_validator_upload_review.png)
+![read all reviews](static/images/README_images/html_validator_reviews.png)
 
 [PEP8 Online Checker](http://pep8online.com/checkresult)
 ![results from pep8 check](static/images/README_images/PEP8_online_check.png)
 
 
 [Google Lighthouse Score test](https://developers.google.com/web/tools/lighthouse)
-![lighthouse score](static/images/README_images/Lighthouse-report.png)
+![lighthouse score](static/images/README_images/ms3_lighthouse_homepage_desktop.pdf)
 
 The performance score is lower we would liek to see here but on further review this is becuase the images are sourced via linkes from third party sites and not actually affecting the performance of our site. 
 
@@ -172,7 +173,6 @@ Email to personal account testing newsletter subscription
  
 -   The performace score is lower than expected as the images as sourced from external sites so not actually reflecting the site. 
 -   The site loads a bit slower than I would have liked but after numerous rounds of testing and fine tuning my code I could not get it as quick as I would like and all tests were coming back fine. 
-_   The subscribe button in the footer is white on grey and hard to read but was unable to change this. 
  
 ## Deployment
  
