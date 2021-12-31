@@ -41,7 +41,7 @@ The Upshot is a website for a local film club. Users will be able to create a pr
  
 *  ### Wireframes
  
-   -   Home Page Wireframe - [View](static/images/README_images/Upshot wireframe.png)
+   -   Home Page Wireframe - [View](static/images/README_images/Upshot_wireframe.png)
  
    -   Mobile Wireframe - [View](static/images/README_images/upshot_mobile_wireframe.png)
  
@@ -110,7 +110,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 
 [Google Lighthouse Score test](https://developers.google.com/web/tools/lighthouse)
-![lighthouse score](static/images/README_images/ms3_lighthouse_homepage_desktop.pdf)
+[View lighthouse Results](static/images/README_images/ms3_lighthouse_homepage_desktop.pdf)
 
 The performance score is lower we would liek to see here but on further review this is becuase the images are sourced via linkes from third party sites and not actually affecting the performance of our site. 
 
@@ -171,9 +171,7 @@ Email to personal account testing newsletter subscription
  
 ### Known Bugs
  
--   The performace score is lower than expected as the images as sourced from external sites so not actually reflecting the site. 
--   The site loads a bit slower than I would have liked but after numerous rounds of testing and fine tuning my code I could not get it as quick as I would like and all tests were coming back fine. 
- 
+This project is being resubmitted and all previously identified bugs have been addressed. One new ubg was identified in the most recent round f testing, when a user creates a new review it is added to the latest reviews section on the homepage, but if the user edits this review it no longer appears in this section. 
 ## Deployment
  
 Steps for deploying the website to a hosting platform using Heroku:
